@@ -1,0 +1,126 @@
+---
+title: "Africa Rainfall Map: Focused View"
+format: html
+editor: visual
+---
+
+## Libraries & Setup
+
+```{r}
+library(geodata)
+library(terra)
+library(sf)
+library(ggplot2)
+library(rnaturalearth)
+library(patchwork)
+library(tidyverse)
+
+sf_use_s2(FALSE)
+```
+
+## Data Download & Preparation
+
+```{r}
+precipitation <- worldclim_global(var = "prec", res = 10, path = tempdir())
+
+africa_shp <- ne_countries(continent = "Africa", returnclass = "sf") |>
+  st_make_valid()
+
+bbox <- st_bbox(c(
+  xmin = 10,
+  xmax = 50,
+  ymin = -30,
+  ymax = 0
+), crs = st_crs(africa_shp))
+```
+
+## Map Generation Function
+
+```{r}
+generate_rainfall_map <- function(month_index = 1) {
+  rain_month <- precipitation[[month_index]]
+  rain_month_africa <- crop(rain_month, vect(africa_shp))
+
+  rain_df <- as.data.frame(rain_month_africa, xy = TRUE, na.rm = TRUE)
+  colnames(rain_df) <- c("lon", "lat", "rain")
+
+  rain_df_zoomed <- rain_df %>%
+    filter(lon >= bbox["xmin"], lon <= bbox["xmax"], lat >= bbox["ymin"], lat <= bbox["ymax"])
+
+  africa_zoomed <- africa_shp |> st_crop(bbox)
+
+  colors_rain <- scale_fill_gradientn(
+    colors = c("red", "orange", "coral", "lightblue", "deepskyblue", "blue"),
+    name = "Rainfall (mm)"
+  )
+
+  map_africa <- ggplot() +
+    geom_raster(data = rain_df, aes(x = lon, y = lat, fill = rain)) +
+    colors_rain +
+    geom_sf(data = africa_shp, fill = NA, color = "black", size = 0.4) +
+    labs(title = "Full Africa", x = "Longitude", y = "Latitude") +
+    theme(
+      plot.title = element_text(size = 16, face = "bold"),
+      plot.background = element_rect(fill = "linen", color = NA),
+      panel.background = element_rect(fill = "linen", color = NA),
+      panel.grid.major = element_line(color = "grey", size = 0.3),
+      axis.title = element_text(size = 9),
+      axis.text = element_text(size = 9),
+      legend.position = "none"
+    )
+
+  map_detailed <- ggplot() +
+    geom_raster(data = rain_df_zoomed, aes(x = lon, y = lat, fill = rain)) +
+    colors_rain +
+    geom_sf(data = africa_zoomed, fill = NA, color = "black", size = 0.4) +
+    labs(title = "Southern/Central Africa, including Madagascar", x = "Longitude", y = "Latitude") +
+    coord_sf(xlim = c(10, 55), ylim = c(-30, 0), expand = FALSE) +
+    theme(
+      plot.title = element_text(size = 16, face = "bold"),
+      plot.background = element_rect(fill = "linen", color = NA),
+      panel.background = element_rect(fill = "linen", color = NA),
+      panel.grid.major = element_line(color = "grey", size = 0.3),
+      axis.title = element_text(size = 10),
+      axis.text = element_text(size = 9),
+      legend.background = element_rect(fill = "linen", color = NA),
+      legend.key = element_rect(fill = "linen", color = NA),
+      legend.title = element_text(size = 10),
+      legend.text = element_text(size = 9),
+      legend.position = "right"
+    )
+
+  map_africa + map_detailed +
+    plot_annotation(
+      title = paste0("Africa's rainfall in ", month.abb[month_index], " (1970–2000)"),
+      subtitle = "With a focus on Southern/Central Africa, including Madagascar",
+      caption = "Source: WorldClim",
+      theme = theme(
+        plot.title = element_text(size = 18, face = "bold"),
+        plot.subtitle = element_text(size = 12),
+        plot.caption = element_text(size = 9),
+        plot.background = element_rect(fill = "linen", color = NA)
+      )
+    )
+}
+```
+
+## Plot: February Rainfall
+
+```{r}
+generate_rainfall_map(2)
+```
+
+## Commentary
+
+```{markdown}
+### as to a small description;
+i did a little bit more here:
+-> i fetched the rainfall data and africa shapefile (also had to disable s2)
+-> then i defined a bounding box for a region i actually wanted to zoom in on which is southern + central africa, plus madagascar, because after looking at the data these were the areas with actual rain
+-> i created a custom color scale that looks more like an actual rainfall gradient
+-> i wrote a function that builds two maps at once: one full overview of africa and one zoomed-in map
+-> the rainfall data gets cropped and filtered differently for each panel – the full map hides the legend because we only need 1 legend and it will be shown for the zoomed map
+-> country borders were given a rather normal, visible color (black) this time
+-> both maps were then stitched together using patchwork, so it feels more like a dashboard
+-> i kept the styling simple – beige background, some grid lines and no agressive coloring
+```
