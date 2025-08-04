@@ -10,66 +10,90 @@
 </head>
 
 <body>
-<header>
-  <div class="container">
-    <h1>Florian Nadegger</h1>
-    <p class="subtitle">Master's student in Applied Geoinformatics & Software Developer at 
-      <strong><a href="https://www.eurofunk.com/">Eurofunk Kappacher</a></strong></p>
+  <header>
+    <div class="container">
+      <h1>Florian Nadegger</h1>
+      <p class="subtitle">Master's student in Applied Geoinformatics & Software Developer at
+        <strong><a href="https://www.eurofunk.com/">Eurofunk Kappacher</a></strong>
+      </p>
 
-    <nav class="main-nav">
-      <ul class="nav-list">
-        <li><a href="/portfolio/index.html">Home</a></li>
-        <li class="dropdown">
-          <a href="#">Relevant Coursework</a>
-          <ul class="dropdown-content">
-            <li><a href="/portfolio/application development/web-development/index.html">Web Development</a></li>
-            <li><a href="/portfolio/application development/R/index.html">R</a></li>
-            <li><a href="/portfolio/obia/index.html">Object Based Image Analysis</a></li>
-          </ul>
-        </li>
-        <li><a href="/portfolio/bachelorthesis.html">Bachelor Thesis</a></li>
-        <li><a href="/portfolio/masterthesis.html">Master Thesis</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li><a href="/portfolio/index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="#">Relevant Coursework</a>
+            <ul class="dropdown-content">
+              <li><a href="/portfolio/application development/web-development/index.html">Web Development</a></li>
+              <li><a href="/portfolio/application development/R/index.html">R</a></li>
+              <li><a href="/portfolio/obia/index.html">Object Based Image Analysis</a></li>
+            </ul>
+          </li>
+          <li><a href="/portfolio/bachelorthesis.html">Bachelor Thesis</a></li>
+          <li><a href="/portfolio/masterthesis.html">Master Thesis</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
 
   <main class="container">
     <section class="about">
-      <h2>About the assignments</h2>
+      <h2>About the implementations</h2>
       <p>
-        The assignments were about calculating markers in the vicinity of 1km and calculating the nearest polygon to a
+        The implementations were about calculating markers in the vicinity of 1km and calculating the nearest polygon to
+        a
         clicked point on the map. Both tasks involve user interaction with the map to perform calculations and display
         results.
       </p>
     </section>
 
-    <section class="student-section">
-      <h2>Hands-on fun</h2>
-      <ul id="studentListContainer">
-        <li id="addStudentButton" style="cursor: pointer; font-weight: bold; color: blue;">
-          CLICK HERE TO ADD STUDENTS
-        </li>
-      </ul>
-    </section>
-
     <section class="assignments">
-      <h2>Assignments</h2>
-      <ul>
-        <li><a href="assignment1-task1.html">Map marker calculation</a></li>
-        <li><a href="assignment1-task2.html">Polygoncalculation</a></li>
-      </ul>
+      <h2>Implementations</h2>
+
+      <article id="task1" class="map-section">
+        <h3>Map marker calculation</h3>
+        <p>
+          This implementation is about marker visualization. Wherever the user clicks on the map, it calculates how
+          many markers are within a range of 1km. The result is then printed as an alert to the user.
+        </p>
+        <div id="map-task1" class="map-container"></div>
+      </article>
+
+      <article id="task2" class="map-section">
+        <h3>Polygon Calculation</h3>
+        <p>
+          This implementation is about creating a polygon visualization. Wherever the user clicks on the map, the
+          nearest polygon is calculated, highlighted on the map and in the list below.
+        </p>
+        <div id="map-task2" class="map-container"></div>
+
+        <h4>Polygons</h4>
+        <ul id="polygon-list">
+          <li id="polygon1">Polygon 1</li>
+          <li id="polygon2">Polygon 2</li>
+          <li id="polygon3">Polygon 3</li>
+          <li id="polygon4">Polygon 4</li>
+          <li id="polygon5">Polygon 5</li>
+        </ul>
+      </article>
     </section>
+  </main>
 
-    <footer>
-      <div class="container">
-        <p>&copy; 2025 Florian Nadegger</p>
-      </div>
-    </footer>
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Florian Nadegger</p>
+    </div>
+  </footer>
 
-    <script src="/portfolio/application development/web-development/scripts/scriptbase.js" defer></script>
+  <script src="/portfolio/application development/web-development/scripts/leaflet.js" defer></script>
+  <script src="/portfolio/application development/web-development/scripts/scriptbase.js" defer></script>
+  <script src="/portfolio/application development/web-development/scripts/script1.js" defer></script>
+  <script src="/portfolio/application development/web-development/scripts/script2.js" defer></script>
 
+  <script>
+    window.task1MapId = "map-task1";
+    window.task2MapId = "map-task2";
+  </script>
 </body>
 
 </html>

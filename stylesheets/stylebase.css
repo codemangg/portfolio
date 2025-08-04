@@ -49,7 +49,7 @@ header h1 {
   gap: 30px;
   padding: 0;
   margin: 0;
-  justify-content: center; /* align menu to right */
+  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -143,7 +143,8 @@ footer {
   margin-top: 40px;
 }
 
-#map {
+/* Map Container */
+.map-container {
   width: 100%;
   max-width: 960px;
   height: 400px;
@@ -153,10 +154,17 @@ footer {
   border: 1px solid #333;
 }
 
+/* Spacing Between Map Sections */
+.map-section {
+  margin-top: 3rem;
+}
+
+/* Marker Icons (if used) */
 .emoji-marker {
   font-size: 24px;
 }
 
+/* Active Nav Link */
 .nav-list a.active {
   background-color: #1c2b3a;
   color: #ffffff;
