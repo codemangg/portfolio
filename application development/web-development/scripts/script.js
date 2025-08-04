@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // === Task 1: Marker calculation ===
   const markerMapEl = document.getElementById("map-task1");
   if (markerMapEl) {
     const map = L.map("map-task1").setView([47.8095, 13.0550], 14);
@@ -56,7 +55,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // === Task 2: Polygon nearest highlighting ===
   const polygonMapEl = document.getElementById("map-task2");
   if (polygonMapEl) {
     const map = L.map("map-task2").setView([47.8095, 13.0550], 13);
