@@ -9,33 +9,33 @@
 </head>
 
 <body>
-<header>
-  <div class="container">
-    <h1>Florian Nadegger</h1>
-    <p class="subtitle">Master's student in Applied Geoinformatics & Software Developer at 
-      <strong><a href="https://www.eurofunk.com/">Eurofunk Kappacher</a></strong></p>
+  <header>
+    <div class="container">
+      <h1>Florian Nadegger</h1>
+      <p class="subtitle">Master's student in Applied Geoinformatics & Software Developer at
+        <strong><a href="https://www.eurofunk.com/">Eurofunk Kappacher</a></strong></p>
 
-    <nav class="main-nav">
-      <ul class="nav-list">
-        <li><a href="/portfolio/index.html">Home</a></li>
-        <li class="dropdown">
-          <a href="#">Relevant Coursework</a>
-          <ul class="dropdown-content">
-            <li><a href="/portfolio/application development/web-development/index.html">Web Development</a></li>
-            <li><a href="/portfolio/application development/R/index.html">R</a></li>
-            <li><a href="/portfolio/obia/index.html">Object Based Image Analysis</a></li>
-          </ul>
-        </li>
-        <li><a href="/portfolio/bachelorthesis.html">Bachelor Thesis</a></li>
-        <li><a href="/portfolio/masterthesis.html">Master Thesis</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li><a href="/portfolio/index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="#">Relevant Coursework</a>
+            <ul class="dropdown-content">
+              <li><a href="/portfolio/application development/web-development/index.html">Web Development</a></li>
+              <li><a href="/portfolio/application development/R/index.html">R</a></li>
+              <li><a href="/portfolio/obia/index.html">Object Based Image Analysis</a></li>
+            </ul>
+          </li>
+          <li><a href="/portfolio/bachelorthesis.html">Bachelor Thesis</a></li>
+          <li><a href="/portfolio/masterthesis.html">Master Thesis</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
   <main class="container">
     <section class="about">
-      <h2>About the assignments</h2>
+      <h2>About the implementations</h2>
       <p>
         The assignments were about creating a good and a bad map in R. The good map is well designed and functional,
         while the bad map is intentionally poorly designed to demonstrate what not to do in map creation.<br>
@@ -47,12 +47,38 @@
     </section>
 
     <section class="assignments">
-      <h2>Assignments</h2>
-      <ul>
-        <li><a href="goodmap.html">Good map</a></li>
-        <li><a href="badmap.html">Bad map</a></li>
-        <li><a href="finalproject.html">Final project</a></li>
-      </ul>
+      <h2>Implementations</h2>
+
+      <article>
+        <h3>Good Map</h3>
+        <p>
+          This map was created using best practices in cartography and spatial data visualization. It features
+          a clean layout, carefully chosen color schemes, appropriate symbology, and balanced design. Labels and
+          legends are clear and legible, with all elements arranged to enhance usability and interpretability.
+        </p>
+        <img src="/portfolio/images/goodmap_screenshot.png" alt="Screenshot of the good map" style="max-width: 100%; height: auto; margin: 1em 0;" />
+      </article>
+
+      <article>
+        <h3>Bad Map</h3>
+        <p>
+          In contrast, the bad map intentionally violates effective mapping conventions. It includes excessive or clashing
+          colors, disorganized layouts, inconsistent font styles and sizes, and confusing legends. This version serves
+          to highlight what makes a map hard to read or misleading, and is used as a teaching tool to recognize poor
+          design choices.
+        </p>
+      <img src="/portfolio/images/goodmap_screenshot.png" alt="Screenshot of the bad map" style="max-width: 100%; height: auto; margin: 1em 0;" />
+      </article>
+
+      <article>
+        <h3>Final Project: Moon Crater Distribution</h3>
+        <p>
+          The final project explores the hypothesis that lunar craters are more densely located on the Moon's farside.
+          Using spatial data and mapping techniques in R, crater distributions were visualized and analyzed. The results
+          align with current scientific theories, suggesting a massive early impact caused volcanic resurfacing on the
+          nearside, hiding many older craters and leading to the asymmetry.
+        </p>
+      </article>
     </section>
 
     <section class="contact">
