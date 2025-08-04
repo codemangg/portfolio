@@ -1,26 +1,37 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // === Task 1: Marker calculation ===
   const markerMapEl = document.getElementById("map-task1");
   if (markerMapEl) {
-    const map = L.map("map-task1").setView([47.8095, 13.0550], 13);
+    const map = L.map("map-task1").setView([47.8095, 13.0550], 14);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '© OpenStreetMap contributors'
     }).addTo(map);
 
+    const emojiIcon = L.divIcon({
+      className: 'emoji-marker',
+      html: '📍'
+    });
+
     const markerData = [
-      [47.81, 13.05],
-      [47.808, 13.06],
-      [47.807, 13.07],
-      [47.805, 13.08],
-      [47.804, 13.09]
+      [47.8101, 13.0551],
+      [47.8109, 13.0510],
+      [47.8112, 13.0589],
+      [47.8099, 13.0602],
+      [47.8087, 13.0548],
+      [47.8075, 13.0579],
+      [47.8053, 13.0581],
+      [47.8051, 13.0635],
+      [47.8044, 13.0614],
+      [47.8038, 13.0597],
+      [47.8030, 13.0622],
+      [47.8023, 13.0640]
     ];
 
-    const markers = markerData.map(([lat, lng]) => {
-      return L.marker([lat, lng])
-        .addTo(map)
-        .bindPopup(`Marker at ${lat.toFixed(4)}, ${lng.toFixed(4)}`);
-    });
+    const markers = markerData.map(([lat, lng]) =>
+      L.marker([lat, lng], { icon: emojiIcon }).addTo(map)
+    );
 
     function getDistance(lat1, lon1, lat2, lon2) {
       const R = 6371e3;
@@ -45,6 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // === Task 2: Polygon nearest highlighting ===
   const polygonMapEl = document.getElementById("map-task2");
   if (polygonMapEl) {
     const map = L.map("map-task2").setView([47.8095, 13.0550], 13);
