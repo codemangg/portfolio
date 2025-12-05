@@ -42,11 +42,6 @@
     </header>
 
     <div class="page">
-
-        <div class="sdg-icon-wrapper">
-            <img src="sdg_icon.png" alt="SDG 3" title="SDG 3 – Good Health and Well-being">
-        </div>
-
         <h1>Vaccination rates across the world</h1>
         <p class="subtitle">
             The map shows the vaccination rate of various diseases across the world.
@@ -62,7 +57,14 @@
             <button id="playButton" type="button">▶ Play</button>
         </div>
 
-        <div id="map"></div>
+        <div class="map-layout">
+            <div id="map"></div>
+
+            <div class="sdg-icon">
+                <img src="sdg_icon.png" alt="SDG 3" title="SDG 3 – Good Health and Well-being">
+            </div>
+        </div>
+
         <div id="mapTooltip" class="map-tooltip"></div>
     </div>
 
