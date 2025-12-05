@@ -42,30 +42,31 @@
     </header>
 
     <div class="page">
-        <h1>Vaccination rates across the world</h1>
-        <p class="subtitle">
-            The map shows the vaccination rate of various diseases across the world.
-            Select a year and disease type to see how vaccination rates change across regions.
-        </p>
+        <div class="content-layout">
+            <div class="main-column">
+                <h1>Vaccination rates across the world</h1>
+                <p class="subtitle">
+                    The map shows the vaccination rate of various diseases across the world.
+                    Select a year and disease type to see how vaccination rates change across regions.
+                </p>
 
-        <div class="controls">
-            <label for="vaccineSelect">Vaccine:</label>
-            <select id="vaccineSelect"></select>
+                <div class="controls">
+                    <label for="vaccineSelect">Vaccine:</label>
+                    <select id="vaccineSelect"></select>
 
-            <label for="yearSelect">Year:</label>
-            <select id="yearSelect"></select>
-            <button id="playButton" type="button">▶ Play</button>
-        </div>
+                    <label for="yearSelect">Year:</label>
+                    <select id="yearSelect"></select>
+                    <button id="playButton" type="button">▶ Play</button>
+                </div>
 
-        <div class="map-layout">
-            <div id="map"></div>
+                <div id="map"></div>
+                <div id="mapTooltip" class="map-tooltip"></div>
+            </div>
 
             <div class="sdg-icon">
                 <img src="sdg_icon.png" alt="SDG 3" title="SDG 3 – Good Health and Well-being">
             </div>
         </div>
-
-        <div id="mapTooltip" class="map-tooltip"></div>
     </div>
 
     <div id="infoModal" class="modal">

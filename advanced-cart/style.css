@@ -10,16 +10,27 @@ body {
 }
 
 .page {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 1rem;
 }
 
-.page h1 {
+.content-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.main-column {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.main-column h1 {
   margin-bottom: 0.25rem;
 }
 
-.page .subtitle {
+.main-column .subtitle {
   margin-top: 0;
   color: #6b7280;
   font-size: 0.9rem;
@@ -50,16 +61,8 @@ body {
   background: #ffffff;
 }
 
-.map-layout {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  margin-top: 0.5rem;
-}
-
 #map {
   height: 700px;
-  flex: 1 1 auto;
   width: 100%;
   border-radius: 0.75rem;
   overflow: hidden;
@@ -67,7 +70,7 @@ body {
 }
 
 .sdg-icon {
-  flex: 0 0 320px;
+  flex: 0 0 340px;
 }
 
 .sdg-icon img {
@@ -76,14 +79,14 @@ body {
   display: block;
 }
 
-@media (max-width: 960px) {
-  .map-layout {
+@media (max-width: 1100px) {
+  .content-layout {
     flex-direction: column;
   }
 
   .sdg-icon {
     flex: 0 0 auto;
-    max-width: 260px;
+    max-width: 320px;
     align-self: center;
   }
 }
