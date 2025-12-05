@@ -1,0 +1,205 @@
+/* Map-specific styles only – globals come from stylebase.css */
+
+/* Layout wrapper for the map page content */
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Only style the map page title, not the header title */
+.page > h1 {
+  margin-bottom: 0.25rem;
+}
+
+/* Controls bar above the map */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.75rem 0 1rem;
+  padding: 0.75rem 1rem;
+  background: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+  width: 96%;
+}
+
+.controls label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.controls select {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5db;
+  font-size: 0.9rem;
+  background: white;
+}
+
+/* Map container */
+#map {
+  height: 700px;
+  width: 96%;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.16);
+}
+
+/* Legend styling */
+.info.legend {
+  background: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.info.legend .title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.info.legend i {
+  width: 16px;
+  height: 16px;
+  float: left;
+  margin-right: 6px;
+  opacity: 0.8;
+  border-radius: 3px;
+}
+
+.info.legend span {
+  display: inline-block;
+  margin-bottom: 2px;
+}
+
+/* Tooltip on hover over countries */
+.map-tooltip {
+  position: absolute;
+  padding: 6px 8px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.2);
+  font-size: 0.8rem;
+  line-height: 1.3;
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.08s ease-out;
+}
+
+.map-tooltip.show {
+  opacity: 1;
+}
+
+/* Play button when active */
+#playButton.playing {
+  color: #000000;
+}
+
+/* SDG icon floating badge */
+.sdg-floating {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 5000;
+}
+
+.sdg-floating img {
+  width: 450px;
+  height: auto;
+  display: block;
+}
+
+/* Custom Leaflet info button for modal trigger */
+.leaflet-control.info-button {
+  background: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
+}
+
+/* Modal styling */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 4000;
+  font-size: 0.95rem;
+}
+
+.modal.visible {
+  display: flex;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+}
+
+.modal-content {
+  position: relative;
+  background: #ffffff;
+  padding: 1.5rem 1.75rem 1.5rem;
+  border-radius: 16px;
+  width: min(480px, 92vw);
+  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.35);
+  z-index: 1;
+  color: #111827;
+  line-height: 1.5;
+}
+
+.modal-content h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.modal-content p {
+  margin: 0.35rem 0;
+}
+
+.modal-content ul {
+  margin: 0.5rem 0 0.75rem 1.1rem;
+  padding: 0;
+}
+
+.modal-content li {
+  margin-bottom: 0.25rem;
+}
+
+.modal-content p:last-of-type,
+.modal-content p:nth-last-of-type(2) {
+  font-size: 0.85rem;
+  color: #4b5563;
+}
+
+.modal-close {
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: #6b7280;
+  transition: color 0.15s ease;
+}
+
+.modal-close:hover {
+  color: #111827;
+}
