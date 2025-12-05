@@ -1,18 +1,30 @@
-/* Map-specific styles only – globals come from stylebase.css */
+* {
+  box-sizing: border-box;
+}
 
-/* Layout wrapper for the map page content */
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f3f4f6;
+  color: #111827;
+}
+
 .page {
   max-width: 1100px;
   margin: 0 auto;
   padding: 1rem;
 }
 
-/* Only style the map page title, not the header title */
-.page > h1 {
+.page h1 {
   margin-bottom: 0.25rem;
 }
 
-/* Controls bar above the map */
+.page .subtitle {
+  margin-top: 0;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
 .controls {
   display: flex;
   align-items: center;
@@ -35,10 +47,9 @@
   border-radius: 0.5rem;
   border: 1px solid #d1d5db;
   font-size: 0.9rem;
-  background: white;
+  background: #ffffff;
 }
 
-/* Map container */
 #map {
   height: 700px;
   width: 96%;
@@ -47,9 +58,8 @@
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.16);
 }
 
-/* Legend styling */
 .info.legend {
-  background: white;
+  background: #ffffff;
   padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
   box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
@@ -76,7 +86,6 @@
   margin-bottom: 2px;
 }
 
-/* Tooltip on hover over countries */
 .map-tooltip {
   position: absolute;
   padding: 6px 8px;
@@ -95,15 +104,13 @@
   opacity: 1;
 }
 
-/* Play button when active */
 #playButton.playing {
   color: #000000;
 }
 
-/* SDG icon floating badge */
 .sdg-floating {
   position: fixed;
-  top: 12px;
+  top: 100px;
   right: 12px;
   z-index: 5000;
 }
@@ -114,9 +121,8 @@
   display: block;
 }
 
-/* Custom Leaflet info button for modal trigger */
 .leaflet-control.info-button {
-  background: white;
+  background: #ffffff;
   width: 32px;
   height: 32px;
   border-radius: 999px;
@@ -129,7 +135,6 @@
   box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
 }
 
-/* Modal styling */
 .modal {
   position: fixed;
   inset: 0;
