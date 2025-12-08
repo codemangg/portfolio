@@ -106,31 +106,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Analysis of lunar craters looking at the far- and nearside</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Nadegger Florian </p>
-          </div>
-  </div>
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
 <section id="usage-of-ai" class="level2">
 <h2 class="anchored" data-anchor-id="usage-of-ai">Usage of AI</h2>
 <p>A short note regarding the usage of AI in the course of the implementation: I used (or rather, tried to use) Github Copilot. I started writing the code and discussed the solutions with Copilot. Sometimes I would get some nice improvements and quick solutions (for example changing the scale of the crater count to a log10 scale), but most of the time I got very bad code and a complete destruction of the output. I also used it to figure out errors, which is why I added the sf_use_s2(FALSE) for example, as I experienced problems with data somewhere and this was a nice and quick solution. Also the conversion from planar to spatial and from spatial to planar was a suggestion of Copilot, as it could potentially invalidate the result of the analysis. The biggest “chunk” I used AI for was suggestions of the analysis I could do. I discussed the metrics used in common literature and gave the ones I have available in the moon crater DB as input.</p>
