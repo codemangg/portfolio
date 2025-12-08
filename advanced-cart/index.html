@@ -6,8 +6,7 @@
     <title>Florian Nadegger</title>
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-        crossorigin="" />
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 
     <link rel="stylesheet" href="/portfolio/stylesheets/stylebase.css" />
     <link rel="stylesheet" href="style.css" />
@@ -28,7 +27,8 @@
                     <li class="dropdown">
                         <a href="#">Relevant Coursework</a>
                         <ul class="dropdown-content">
-                            <li><a href="/portfolio/application development/web-development/index.html">Web Development</a></li>
+                            <li><a href="/portfolio/application development/web-development/index.html">Web
+                                    Development</a></li>
                             <li><a href="/portfolio/application development/R/index.html">R</a></li>
                             <li><a href="/portfolio/obia/index.html">Object Based Image Analysis</a></li>
                             <li><a href="/portfolio/advanced-cart/index.html">Advanced Cartography</a></li>
@@ -41,69 +41,91 @@
         </div>
     </header>
 
-    <div class="page">
-        <div class="content-layout">
-            <div class="main-column">
-                <h1>Vaccination rates across the world</h1>
-                <p class="subtitle">
-                    The map shows the vaccination rate of various diseases across the world.
-                    Select a year and disease type to see how vaccination rates change across regions.
-                </p>
-
-                <div class="controls">
-                    <label for="vaccineSelect">Vaccine:</label>
-                    <select id="vaccineSelect"></select>
-
-                    <label for="yearSelect">Year:</label>
-                    <select id="yearSelect"></select>
-                    <button id="playButton" type="button">▶ Play</button>
-                </div>
-
-                <div id="map"></div>
-                <div id="mapTooltip" class="map-tooltip"></div>
-            </div>
-
-            <div class="sdg-icon">
-                <img src="sdg_icon.png" alt="SDG 3" title="SDG 3 – Good Health and Well-being">
-            </div>
-        </div>
-    </div>
-
-    <div id="infoModal" class="modal">
-        <div class="modal-backdrop"></div>
-        <div class="modal-content">
-            <button id="modalClose" class="modal-close">&times;</button>
-            <h2>About this map</h2>
-
+    <main class="container">
+        <section class="about">
+            <h2>About the implementations</h2>
             <p>
-                This interactive map visualizes the global vaccination coverage data of the
-                4 most notorious diseases in children preventable by vaccination:
-            </p>
-
-            <ul>
-                <li>BCG (bacillus calmette-guérin – also known as tuberculosis)</li>
-                <li>DTP3 (diphtheria, tetanus, and pertussis)</li>
-                <li>MCV1 (measles-containing vaccine)</li>
-                <li>POL3 (polio-containing vaccine where children of 1 year of age received 3 doses)</li>
-            </ul>
-
-            <p>Data source: WHO / UNICEF</p>
-            <p>Created by: Florian Nadegger</p>
-            <p>
-                To see more, check the following
-                <a href="https://storymaps.arcgis.com/stories/d0673ed6e6084bbf9eb2ad9f248eb954" target="_blank"
+                I drafted a map about vaccination coverage for POLIO (to support SDG3). We then had feedback sessions,
+                where I got points to figure out and improve, which i subsequently did in the second map. The second map
+                was then base of a realeye.io study which was conducted with my fellow peers to figure out even more
+                improvements, but with a focus on the result of this study. I also implemented this feedback, and
+                created a new map. Ultimately, I created an interactive map that would include all learnings which is
+                below on this page. The previous progression can be found in an <a
+                    href="https://storymaps.arcgis.com/stories/d0673ed6e6084bbf9eb2ad9f248eb954" target="_blank"
                     rel="noopener noreferrer">
-                    StoryMap
+                    ArcGIS Storymap
                 </a>
             </p>
+        </section>
+
+        <div class="page">
+            <div class="content-layout">
+                <div class="main-column">
+                    <h1>Vaccination rates across the world</h1>
+                    <p class="subtitle">
+                        The map shows the vaccination rate of various diseases across the world.
+                        Select a year and disease type to see how vaccination rates change across regions.
+                    </p>
+
+                    <div class="controls">
+                        <label for="vaccineSelect">Vaccine:</label>
+                        <select id="vaccineSelect"></select>
+
+                        <label for="yearSelect">Year:</label>
+                        <select id="yearSelect"></select>
+                        <button id="playButton" type="button">▶ Play</button>
+                    </div>
+
+                    <div id="map"></div>
+                    <div id="mapTooltip" class="map-tooltip"></div>
+                </div>
+
+                <div class="sdg-icon">
+                    <img src="sdg_icon.png" alt="SDG 3" title="SDG 3 – Good Health and Well-being">
+                </div>
+            </div>
         </div>
-    </div>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-        crossorigin=""></script>
+        <div id="infoModal" class="modal">
+            <div class="modal-backdrop"></div>
+            <div class="modal-content">
+                <button id="modalClose" class="modal-close">&times;</button>
+                <h2>About this map</h2>
 
-    <script src="script.js"></script>
+                <p>
+                    This interactive map visualizes the global vaccination coverage data of the
+                    4 most notorious diseases in children preventable by vaccination:
+                </p>
+
+                <ul>
+                    <li>BCG (bacillus calmette-guérin – also known as tuberculosis)</li>
+                    <li>DTP3 (diphtheria, tetanus, and pertussis)</li>
+                    <li>MCV1 (measles-containing vaccine)</li>
+                    <li>POL3 (polio-containing vaccine where children of 1 year of age received 3 doses)</li>
+                </ul>
+
+                <p>Data source: WHO / UNICEF</p>
+                <p>Created by: Florian Nadegger</p>
+                <p>
+                    To see more, check the following
+                    <a href="https://storymaps.arcgis.com/stories/d0673ed6e6084bbf9eb2ad9f248eb954" target="_blank"
+                        rel="noopener noreferrer">
+                        StoryMap
+                    </a>
+                </p>
+            </div>
+        </div>
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2025 Florian Nadegger</p>
+            </div>
+        </footer>
+
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+        <script src="script.js"></script>
 </body>
 
 </html>
