@@ -11,10 +11,11 @@ body {
   color: #333;
 }
 
-container {
-  width: 80%;
-  margin: 0 auto;
-  padding: 1rem;
+.container {
+  width: 90%;
+  max-width: 960px;
+  margin: auto;
+  padding: 20px;
 }
 
 header {
@@ -138,7 +139,7 @@ footer {
 
 .map-container {
   width: 100%;
-  max-width: 1100px;
+  max-width: 960px;
   height: 400px;
   margin: 0 auto;
   display: block;
