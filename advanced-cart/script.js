@@ -192,8 +192,32 @@ function initYearOptions() {
 
 vaccineSelect.addEventListener("change", () => {
   stopAnimation();
-  currentVaccine = vaccineSelect.value;
-  updateYearsForCurrentVaccine();
+  const newVaccine = vaccineSelect.value;
+  const byCountry = vaccinationData[newVaccine] || {};
+  const yearsSet = new Set();
+  Object.values(byCountry).forEach((obj) => {
+    Object.keys(obj).forEach((y) => yearsSet.add(y));
+  });
+  const availYears = Array.from(yearsSet).sort((a, b) => Number(a) - Number(b));
+  let chosenYear = null;
+  if (currentYear != null && availYears.includes(String(currentYear))) {
+    chosenYear = String(currentYear);
+  } else if (currentYear != null) {
+    const curr = Number(currentYear);
+    for (let i = availYears.length - 1; i >= 0; i--) {
+      if (Number(availYears[i]) <= curr) {
+        chosenYear = availYears[i];
+        break;
+      }
+    }
+  }
+  if (!chosenYear) chosenYear = availYears.length ? availYears[availYears.length - 1] : null;
+  currentVaccine = newVaccine;
+  years = availYears;
+  currentYear = chosenYear;
+  initVaccineOptions();
+  initYearOptions();
+  if (currentYear) yearSelect.value = currentYear;
   if (geojsonLayer) geojsonLayer.setStyle(styleFeature);
   updateLegendTitle();
 });
