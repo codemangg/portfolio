@@ -154,6 +154,21 @@ body {
   font-weight: bold;
   border: none;
   box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
+  font-size: 20px;
+}
+
+.leaflet-control.home-button {
+  background: #ffffff;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
+  font-size: 20px;
 }
 
 .modal {

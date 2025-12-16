@@ -17,6 +17,10 @@ const vaccineSelect = document.getElementById("vaccineSelect");
 const tooltipEl = document.getElementById("mapTooltip");
 const playButton = document.getElementById("playButton");
 let hideTooltipTimeout = null;
+
+const initialCenter = [20, 0];
+const initialZoom = 2;
+
 const map = L.map("map", {
   center: [20, 0],
   zoom: 2,
@@ -35,9 +39,34 @@ const InfoButton = L.Control.extend({
     btn.textContent = "i";
     btn.onclick = () => openInfoModal();
     return btn;
-  } 
+  }
 });
 map.addControl(new InfoButton());
+
+const HomeButton = L.Control.extend({
+  options: { position: "topleft" },
+  onAdd: function () {
+    const btn = L.DomUtil.create("button", "leaflet-control home-button");
+    btn.title = "Reset view";
+    btn.innerHTML = `
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M12 3l9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V10l9-7z"/>
+      </svg>
+    `;
+    L.DomEvent.disableClickPropagation(btn);
+    L.DomEvent.on(btn, "click", (e) => {
+      L.DomEvent.stopPropagation(e);
+      const sameZoom = map.getZoom() === initialZoom;
+      const sameCenter = map.getCenter().equals(L.latLng(initialCenter));
+      if (sameZoom && sameCenter) return;
+      map.stop();
+      map.setView(initialCenter, initialZoom, { animate: true, duration: 0.7 });
+    });
+    return btn;
+  }
+});
+map.addControl(new HomeButton());
+
 
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
