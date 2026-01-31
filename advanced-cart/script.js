@@ -306,7 +306,7 @@ function createLegend() {
   legendControl = L.control({ position: "bottomleft" });
   legendControl.onAdd = function () {
     const div = L.DomUtil.create("div", "info legend");
-    div.innerHTML = `<div class="title">${currentVaccine} coverage in %(${currentYear})</div>`;
+    div.innerHTML = `<div class="title">${currentVaccine} coverage in % (${currentYear})</div>`;
     div.innerHTML += `<i style="background:${getColor(1)}"></i><span>&lt; 50</span><br>`;
     div.innerHTML += `<i style="background:${getColor(50.1)}"></i><span>50–60</span><br>`;
     div.innerHTML += `<i style="background:${getColor(60.1)}"></i><span>60–70</span><br>`;
