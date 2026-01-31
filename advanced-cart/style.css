@@ -243,3 +243,10 @@ body {
 .modal-close:hover {
   color: #111827;
 }
+
+.icon-description {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  color: #374151;
+  line-height: 1.5;
+}
