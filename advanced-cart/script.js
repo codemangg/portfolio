@@ -102,15 +102,15 @@ function hideTooltipWithDelay() {
 
 function getColor(rate) {
   return rate > 90
-    ? "#063d0a"
+    ? "#032205"
     : rate > 80
-      ? "#136913"
+      ? "#0d4b0d"
       : rate > 70
-        ? "#278a27"
+        ? "#187718"
         : rate > 60
-          ? "#43b943"
+          ? "#34a334"
           : rate >= 1
-            ? "#69e069f3"
+            ? "#4ebb4ef3"
             : "#a7e7a7";
 }
 
