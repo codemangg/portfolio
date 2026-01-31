@@ -73,16 +73,16 @@ function hideTooltipWithDelay() {
 
 function getColor(rate) {
   return rate > 90
-    ? "#0d7313"
+    ? "#063d0a"
     : rate > 80
-      ? "#1fb51f"
+      ? "#157515"
       : rate > 70
-        ? "#3fdc3f"
+        ? "#30ac30"
         : rate > 60
-          ? "#7be87b"
+          ? "#59d859"
           : rate >= 1
-            ? "#c8f7c8"
-            : "#c8f7c8";
+            ? "#898b8969"
+            : "#898b8969";
 }
 
 function getIsoCode(feature) {
@@ -253,13 +253,13 @@ function createLegend() {
   legendControl = L.control({ position: "bottomleft" });
   legendControl.onAdd = function () {
     const div = L.DomUtil.create("div", "info legend");
-    div.innerHTML = `<div class="title">${currentVaccine} coverage (${currentYear})</div>`;
-    div.innerHTML += `<i style="background:${getColor(1)}"></i><span>&lt; 50%</span><br>`;
-    div.innerHTML += `<i style="background:${getColor(50.1)}"></i><span>50–60%</span><br>`;
-    div.innerHTML += `<i style="background:${getColor(60.1)}"></i><span>60–70%</span><br>`;
-    div.innerHTML += `<i style="background:${getColor(70.1)}"></i><span>70–80%</span><br>`;
-    div.innerHTML += `<i style="background:${getColor(80.1)}"></i><span>80–90%</span><br>`;
-    div.innerHTML += `<i style="background:${getColor(90.1)}"></i><span>&gt; 90%</span><br>`;
+    div.innerHTML = `<div class="title">${currentVaccine} coverage in %(${currentYear})</div>`;
+    div.innerHTML += `<i style="background:${getColor(1)}"></i><span>&lt; 50</span><br>`;
+    div.innerHTML += `<i style="background:${getColor(50.1)}"></i><span>50–60</span><br>`;
+    div.innerHTML += `<i style="background:${getColor(60.1)}"></i><span>60–70</span><br>`;
+    div.innerHTML += `<i style="background:${getColor(70.1)}"></i><span>70–80</span><br>`;
+    div.innerHTML += `<i style="background:${getColor(80.1)}"></i><span>80–90</span><br>`;
+    div.innerHTML += `<i style="background:${getColor(90.1)}"></i><span>&gt; 90</span><br>`;
     div.innerHTML += `<i style="background:#cccccc"></i><span>No data</span><br>`;
     return div;
   };
