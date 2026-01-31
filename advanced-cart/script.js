@@ -110,8 +110,8 @@ function getColor(rate) {
         : rate > 60
           ? "#34a334"
           : rate >= 1
-            ? "#4ebb4ef3"
-            : "#a7e7a7";
+            ? "#6ed86ef3"
+            : "#d0f5d0";
 }
 
 function getIsoCode(feature) {
